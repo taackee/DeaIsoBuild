@@ -95,3 +95,15 @@ cardList.forEach((card) => {
 })
 
 // projects
+
+//circle
+// new CircleType(document.querySelector('.numbers__circle'));
+// new CircleType(document.querySelector('.numbers__circle1'));
+// new CircleType(document.querySelector('.numbers__circle2'));
+// new CircleType(document.querySelector('.numbers__circle3'));
+
+let circle = [... document.querySelectorAll(".numbers__circle")] 
+
+circle.forEach((circle) => {
+  new CircleType(circle)
+})
