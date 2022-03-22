@@ -43,7 +43,7 @@ aboutTl.from('.about__image', {
 
 // three gsap
 document.body.style.overflow = 'auto'
-document.scrollingElement.scrollTo(0, 0)
+// document.scrollingElement.scrollTo(0, 0)
 
 gsap.utils.toArray('.three__part').forEach((part, index) => {
   const wrapper = part.querySelector('.three__text')

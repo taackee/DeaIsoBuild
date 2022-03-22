@@ -526,14 +526,12 @@ img
     justify-content: center
     align-items: center
     background-color: $off-white
-    &__container
-        display: flex
-        align-items: center
-        justify-content: center
-        flex-direction: row
+    position: relative
     &__card
-        padding: 0 10rem
-        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+    &__text
     &__circle
         font-family: 'Poppins', sans-serif
         font-size: .8rem
@@ -549,7 +547,12 @@ img
         -webkit-text-stroke-width: 1px
         -webkit-text-stroke-color: $accent
         font-size: 3rem
-
+    &__subtitle
+        font-family: 'Poppins', sans-serif
+        text-transform: uppercase
+        font-size: .5rem
+        font-weight: 400
+        color: $off-black
 
 // contact
 .contact
