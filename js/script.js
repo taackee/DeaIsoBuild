@@ -13,11 +13,18 @@ AOS.init({
 // loader
 
 // burger click
+const alterNav = document.querySelector(".alternav")
 const burger = document.querySelector('.navbar__burger')
 
 burger.addEventListener('click', function () {
   this.classList.toggle('clicked')
+  alterNav.classList.toggle('active')
 })
+
+const alterOff = () => {
+  alterNav.classList.remove('open');
+  burger.classList.remove('active');
+};
 
 // about gsap
 const aboutTl = gsap.timeline({
@@ -94,7 +101,29 @@ cardList.forEach((card) => {
   })
 })
 
-// projects
+// projects filter
+const filters = document.querySelectorAll('.projects__filter')
+const cards = document.querySelectorAll('.projects__card')
+
+filters.forEach((item) => {
+  item.addEventListener('click', () => {
+    // toggle active class on filter btns
+    for (i = 0; i < filters.length; i++) {
+      filters[i].classList.remove('active')
+    }
+    item.classList.add('active')
+
+    // show cards
+    cards.forEach((show) => {
+      show.style.display = 'none'
+      let service = item.getAttribute('data-filter')
+
+      if (show.getAttribute('data-filter') === service || service === 'all') {
+        show.style.display = 'flex'
+      }
+    })
+  })
+})
 
 //circle
 // new CircleType(document.querySelector('.numbers__circle'));
@@ -107,3 +136,4 @@ let circle = [... document.querySelectorAll(".numbers__circle")]
 circle.forEach((circle) => {
   new CircleType(circle)
 })
+
