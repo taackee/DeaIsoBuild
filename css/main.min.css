@@ -1643,6 +1643,8 @@ img {
 .footer__link:hover {
   color: #FF6701;
   opacity: 1;
+  -webkit-transform: translateX(5px);
+          transform: translateX(5px);
 }
 
 .footer__down {
