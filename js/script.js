@@ -12,19 +12,19 @@ AOS.init({
 
 // loader
 
-// burger click
-const alterNav = document.querySelector(".alternav")
+// alter nav
 const burger = document.querySelector('.navbar__burger')
+const alterNav = document.querySelector('.alter')
 
 burger.addEventListener('click', function () {
   this.classList.toggle('clicked')
-  alterNav.classList.toggle('active')
+  alterNav.classList.toggle('open')
 })
 
-const alterOff = () => {
-  alterNav.classList.remove('open');
-  burger.classList.remove('active');
-};
+const closeAlter = () => {
+  burger.classList.remove('clicked')
+  alterNav.classList.remove('open')
+}
 
 // about gsap
 const aboutTl = gsap.timeline({
@@ -125,15 +125,9 @@ filters.forEach((item) => {
   })
 })
 
-//circle
-// new CircleType(document.querySelector('.numbers__circle'));
-// new CircleType(document.querySelector('.numbers__circle1'));
-// new CircleType(document.querySelector('.numbers__circle2'));
-// new CircleType(document.querySelector('.numbers__circle3'));
-
-let circle = [... document.querySelectorAll(".numbers__circle")] 
+// numbers circles
+let circle = [...document.querySelectorAll('.numbers__circle')]
 
 circle.forEach((circle) => {
   new CircleType(circle)
 })
-

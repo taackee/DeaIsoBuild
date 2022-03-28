@@ -16,13 +16,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
 }
 
 body {
   background-color: #f2f3f4;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  overflow-x: hidden !important;
 }
 
 h1, h2, h3, h4 {
@@ -238,103 +239,102 @@ img {
   margin: .2rem 0;
 }
 
-.alternav {
+.alter {
   position: fixed;
-  top: -110%;
-  right: 0%;
-  height: 100vh;
+  top: -105%;
+  left: 0;
   width: 100%;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #f2f3f4;
-  z-index: 10;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-
-.alternav.active {
-  top: 0;
-}
-
-@media screen and (max-width: 950px) {
-  .alternav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-
-.alternav__links {
+  height: 100%;
+  z-index: 9;
+  background-color: #f2f3f4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0 2rem;
 }
 
-.alternav__link {
-  margin: .5rem 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke-width: .8px;
-  -webkit-text-stroke-color: #2e3545;
+.alter.open {
+  top: 0;
 }
 
-.alternav__contact {
-  font-size: 1rem;
+.alter__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.alter__title {
+  font-size: 1.8rem;
   color: #2e3545;
-  border: 1px solid #2e3545;
-  padding: .5rem 2.5rem;
   position: relative;
+  margin-bottom: 2rem;
   overflow: hidden;
 }
 
-.alternav__contact:before {
+.alter__title::before {
   content: '';
-  width: 150%;
-  height: 400%;
   position: absolute;
-  top: 200%;
-  left: -25%;
+  bottom: 0;
+  left: 0;
+  width: 55px;
+  height: 13px;
+  background-color: #FF6701;
+  opacity: .7;
   z-index: -1;
-  background: #2e3545;
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
 }
 
-.alternav__contact:hover {
-  border-color: #f2f3f4;
-  -webkit-box-shadow: 2px 2px 12px #0002;
-          box-shadow: 2px 2px 12px #0002;
-  color: #f2f3f4;
+.alter__link {
+  font-size: 3.5rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #2e3545;
+  opacity: .75;
+  margin-bottom: .5rem;
 }
 
-.alternav__contact:hover:before {
-  top: -150%;
+.alter__link span {
+  display: none;
 }
 
-.alternav__contact:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+.alter__link:hover, .alter__link:active {
+  opacity: 1;
+  font-style: italic;
+}
+
+.alter__contact {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 2rem;
+}
+
+.alter__contact-link {
+  color: #2e3545;
+  opacity: .75;
+  margin-right: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .hero {
@@ -809,10 +809,8 @@ img {
   opacity: .75;
   font-size: 1rem;
   line-height: 30px;
-  margin: 1rem 0;
+  margin: .5rem 0;
   opacity: .75;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
 }
 
 .three {
@@ -847,6 +845,12 @@ img {
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #2e3545;
+}
+
+@media screen and (max-width: 900px) {
+  .three__span {
+    font-size: 4rem;
+  }
 }
 
 .three__container {
@@ -944,6 +948,7 @@ img {
 @media screen and (max-width: 700px) {
   .services {
     margin-top: 3rem;
+    min-height: 30vh;
   }
 }
 
@@ -1278,6 +1283,12 @@ img {
      object-fit: cover;
   z-index: -1;
   opacity: .08;
+}
+
+@media screen and (max-width: 800px) {
+  .numbers__line {
+    display: none;
+  }
 }
 
 .numbers__container {
